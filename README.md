@@ -1,1 +1,2 @@
-# FastAPI-project
+This project uses <b>FastAPI</b> to build APIs for machine learning models. two models were used, one for furniture price prediction, the other for Paris housing prediction, these models are saved and imported as a .pkl format using <b>Pickle</b>.<Br>
+For furniture, there are two applications, one with FastAPI UI, the other one uses an HTML form to fill the model's inputs through the JINJA2 templating engine, the predictions will appear on the bottom of the page after clicking on the Predict button. the Paris housing model has the HTML format.
