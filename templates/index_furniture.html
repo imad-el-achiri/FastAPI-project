@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Price furniture prediction</title>
+      <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+   </head>
+
+   <body>
+      <div id="wrap">
+      <h1>Furniture prediction</h1>
+
+      <section id="furn" class="frame2">
+
+         <div class="login">
+
+            <form action="{{ url_for('predict')}}"method="post">
+            <table class="entryForm">
+
+            
+            <tr>
+                <label for="category">Choose a category:</label>
+                <select name="category" id="category">
+                {% for i in range(17) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+                </select>
+            </tr>
+
+
+            <tr>
+                <label for="sellable_online">is it sellable online?</label>
+                <select name="sellable_online" id="sellable_online">
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                </select> 
+            </tr>
+
+
+            <tr>
+                <label for="other_colors">does it have other colors?</label>
+                <select name="other_colors" id="other_colors">
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                </select> 
+            </tr>
+
+            <tr>
+            <th>depth：</th>
+            <td><input type="text" name="depth" placeholder="depth in meter squared" required="required" />
+            </tr>
+
+            <tr>
+            <th>height：</th>
+            <td><input type="text" name="height" placeholder="Number of height" required="required" />
+            </tr>
+
+
+            <tr>
+                <th>width：</th>
+                <td><input type="text" name="width" placeholder="Number of width" required="required" />
+            </tr>
+            </table>
+            <div class="btns">
+            <button type="reset" class="btn btn-clear">Reset</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+            </form>
+
+         </div>
+
+
+      </section>
+
+
+      <br>
+      <br>
+      {{prediction_text}}
+      </div>
+
+   </body>
+</html>

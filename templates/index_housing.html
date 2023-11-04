@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Paris housing</title>
+      <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+   </head>
+
+   <body>
+      <div id="wrap">
+      <h1>Predict Paris real estate price</h1>
+
+      <section id="furn" class="frame2">
+
+         <div class="login">
+
+            <form action="{{ url_for('predict')}}"method="post">
+            <table class="entryForm">
+
+
+            <tr>
+            <th>Surface：</th>
+            <td><input type="text" name="surface" placeholder="surface in meter squared" required="required" />
+            </tr>
+
+            <tr>
+            <th>Rooms：</th>
+            <td><input type="text" name="rooms" placeholder="Number of rooms" required="required" />
+            </tr>
+
+
+            <tr>
+            <th>Has a yard?</th>
+            <td>
+            <input type="radio" name="yard" value="1" checked>Yes
+            <input type="radio" name="yard" value="0">No
+            </td>
+            </tr>
+
+            <tr>
+            <th>Has a pool?</th>
+            <td>
+            <input type="radio" name="pool" value="1" checked>Yes
+            <input type="radio" name="pool" value="0">No
+            </td>
+            </tr>
+
+            <tr>
+            <th>Floors：</th>
+            <td><input type="text" name="floors" placeholder="Number of floors" required="required" />
+            </tr>
+
+            <tr>
+            <th>Newly built?</th>
+            <td>
+            <input type="radio" name="new" value="1" checked>Yes
+            <input type="radio" name="new" value="0">No
+            </td>
+            </tr>
+
+
+
+            </table>
+            <div class="btns">
+            <button type="reset" class="btn btn-clear">Reset</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+            </form>
+
+         </div>
+
+
+      </section>
+
+
+      <br>
+      <br>
+      {{prediction_text}}
+      </div>
+
+   </body>
+</html>
